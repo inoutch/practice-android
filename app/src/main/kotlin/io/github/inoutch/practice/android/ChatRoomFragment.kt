@@ -14,11 +14,14 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import io.github.inoutch.practice.android.model.MessageViewModel
-import io.github.inoutch.practice.android.model.data.TextMessage
 import io.github.inoutch.practice.android.view.OekakiDialog
 import androidx.fragment.app.viewModels
 import io.github.inoutch.practice.android.databinding.FragmentChatRoomBinding
+import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.ObsoleteCoroutinesApi
 
+@ObsoleteCoroutinesApi
+@ExperimentalCoroutinesApi
 class ChatRoomFragment : Fragment() {
     enum class RequestCode(val code: Int) {
         Picture(1);

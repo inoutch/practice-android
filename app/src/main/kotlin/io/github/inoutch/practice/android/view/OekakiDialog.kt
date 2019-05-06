@@ -6,7 +6,11 @@ import android.view.WindowManager
 import android.widget.ImageView
 import com.bumptech.glide.Glide
 import io.github.inoutch.practice.android.R
+import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.ObsoleteCoroutinesApi
 
+@ObsoleteCoroutinesApi
+@ExperimentalCoroutinesApi
 class OekakiDialog(context: Context) : Dialog(context) {
     private lateinit var oekakiView: OekakiView
 

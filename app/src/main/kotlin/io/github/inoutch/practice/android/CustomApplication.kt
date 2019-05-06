@@ -4,9 +4,11 @@ import android.app.Application
 import io.github.inoutch.practice.android.model.MessageViewModel
 import io.github.inoutch.practice.android.repository.MessageRepository
 import io.github.inoutch.practice.android.repository.OekakiRepository
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 import org.koin.core.context.startKoin
 import org.koin.dsl.module
 
+@ExperimentalCoroutinesApi
 class CustomApplication : Application() {
 
     override fun onCreate() {
@@ -18,7 +20,7 @@ class CustomApplication : Application() {
     }
 
     private val repositoryModule = module {
-        factory { MessageRepository() }
-        factory { OekakiRepository() }
+        single { MessageRepository() }
+        single { OekakiRepository() }
     }
 }

@@ -2,8 +2,11 @@ package io.github.inoutch.practice.android.repository
 
 import android.graphics.Color
 import android.graphics.Paint
-import android.graphics.Point
+import io.github.inoutch.practice.android.model.data.Line
+import kotlinx.coroutines.*
+import kotlinx.coroutines.channels.BroadcastChannel
 
+@ExperimentalCoroutinesApi
 class OekakiRepository {
     val myPaint = Paint().apply {
         color = Color.rgb(255, 0, 0)
@@ -13,17 +16,12 @@ class OekakiRepository {
         strokeWidth = 20.0f
     }
 
-    private var drafts = mutableListOf<Point>()
+    val linesBroadcastChannel = BroadcastChannel<Line>(3)
 
-    fun startDraft(x: Int, y: Int) {
-
-    }
-
-    fun moveDraft(x: Int, y: Int) {
-
-    }
-
-    fun endDraf(x: Int, y: Int) {
-
+    fun postLine(line: Line) {
+        GlobalScope.launch {
+            delay(3000)
+            linesBroadcastChannel.send(line)
+        }
     }
 }
